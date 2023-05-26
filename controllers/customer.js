@@ -83,10 +83,20 @@ const deleteCustomer = (req, res) => {
   res.status(204).end();
 };
 
+// Delete all movies, only for testing
+const deleteAllCustomers = () => {
+  db.query("DELETE FROM customers", (err, res) => {
+    if (err) {
+      return console.error("Error executing query", err.stack);
+    }
+  });
+};
+
 module.exports = {
   getAllCustomers,
   getCustomerById,
   addNewCustomer,
   deleteCustomer,
   updateCustomer,
+  deleteAllCustomers,
 };
